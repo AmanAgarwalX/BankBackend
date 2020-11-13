@@ -10,6 +10,7 @@ import com.anz.bank.repositories.AccountRepository;
 import com.anz.bank.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ public class AccountView {
 	@Autowired
 	private UserRepository userRepository;
 
+	@CrossOrigin
 	@RequestMapping(value = "/account/{userId}", method = RequestMethod.POST)
 	public List<Account> createAccount(@RequestBody Account account, @PathVariable String userId) {
 		User user= userRepository.findById(userId).get();

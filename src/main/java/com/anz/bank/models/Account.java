@@ -1,14 +1,11 @@
 package com.anz.bank.models;
 
-import java.util.Objects;
-import java.util.Optional;
 import java.util.UUID;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.anz.bank.repositories.UserRepository;
 
 @Entity
 public class Account {
@@ -16,13 +13,9 @@ public class Account {
     @Id
     private String id;
     private String phoneNumber;
-    private String accountType;
-    private String email;
-    private String address;
-    private String city;
-    private String state;
-    private String zipCode;
-    private String country;
+    private String pan;
+    private String aadhar;
+    private String company;
 
     @ManyToOne
     private User user;
@@ -32,43 +25,29 @@ public class Account {
     public Account(){
         this.id = UUID.randomUUID().toString();
     }
+    public void setUser(User user) {
+        this.user=user;
+    }
+
 
     public String getId() {
         return this.id;
     }
-    public void setUser(User user) {
-        this.user=user;
-    }
+
     public String getPhoneNumber() {
         return this.phoneNumber;
     }
 
-    public String getAccountType() {
-        return this.accountType;
+    public String getPan() {
+        return this.pan;
     }
 
-    public String getEmail() {
-        return this.email;
+    public String getAadhar() {
+        return this.aadhar;
     }
 
-    public String getAddress() {
-        return this.address;
-    }
-
-    public String getCity() {
-        return this.city;
-    }
-
-    public String getState() {
-        return this.state;
-    }
-
-    public String getZipCode() {
-        return this.zipCode;
-    }
-
-    public String getCountry() {
-        return this.country;
+    public String getCompany() {
+        return this.company;
     }
 
     public User getUser() {
